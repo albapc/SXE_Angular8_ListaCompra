@@ -7,7 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaProductosComponent implements OnInit {
 
-  constructor() { }
+  productos: any[];
+
+  constructor() {
+    const prod1 = {
+      nombre: 'Pan',
+      descripcion: 'Pan de masa madre hecho artesanalmente.',
+      comprado: true
+    };
+    const prod2 = {
+      nombre: 'Pescado',
+      descripcion: 'Pescado procedente de mares gallegos. Disponible en diferentes variedades.',
+      comprado: false
+    };
+    const prod3 = {
+      nombre: 'Carne',
+      descripcion: 'Carne de cerdo, vaca...',
+      comprado: false
+    };
+    this.productos = [];
+    this.productos.push(prod1);
+    this.productos.push(prod2);
+    this.productos.push(prod3);
+  }
 
   ngOnInit() {
   }
