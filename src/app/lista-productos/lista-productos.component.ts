@@ -25,10 +25,28 @@ export class ListaProductosComponent implements OnInit {
       descripcion: 'Carne de cerdo, vaca...',
       comprado: false
     };
+    const prod4 = {
+      nombre: 'Huevos',
+      descripcion: 'Huevos de gallinas camperas.',
+      comprado: true
+    };
+    const prod5 = {
+      nombre: 'Pasta',
+      descripcion: 'Pasta de verduras italiana.',
+      comprado: false
+    };
+    const prod6 = {
+      nombre: 'Leche',
+      descripcion: 'Leche de vaca, procedente de Galicia.',
+      comprado: false
+    };
     this.productos = [];
     this.productos.push(prod1);
     this.productos.push(prod2);
     this.productos.push(prod3);
+    this.productos.push(prod4);
+    this.productos.push(prod5);
+    this.productos.push(prod6);
   }
 
   ngOnInit() {
