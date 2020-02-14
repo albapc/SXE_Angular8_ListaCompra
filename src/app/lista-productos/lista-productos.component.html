@@ -1,4 +1,11 @@
-<table style="width: 100%; border: 1px solid black;">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de la compra</title>
+</head>
+<body>
+<table style="width: 100%; border: 1px solid black;" class="prod">
   <tr>
     <th>Comprado</th>
     <th>Nombre</th>
@@ -9,13 +16,17 @@
       <input type="radio" name="comprado-{{i}}" [(ngModel)]="producto.comprado" [value]="true"> Si
       <input type="radio" name="comprado-{{i}}" [(ngModel)]="producto.comprado" [value]="false"> No
     </td>
-    <td>{{producto.nombre}}</td>
+    <td class="badge">{{producto.nombre}}</td>
     <td>{{producto.descripcion}}</td>
   </tr>
 </table>
 
-<!--REVISAR-->
 <h2>Productos comprados:</h2>
 <div *ngFor="let producto of productos;">
-  <h3 *ngIf="producto.comprado">{{producto.nombre}}</h3>
+  <h3 class="comprado" *ngIf="producto.comprado">{{producto.nombre}}</h3>
 </div>
+
+</body>
+</html>
+
+
