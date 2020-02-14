@@ -13,3 +13,9 @@
     <td>{{producto.descripcion}}</td>
   </tr>
 </table>
+
+<!--REVISAR-->
+<h2>Productos comprados:</h2>
+<div *ngFor="let producto of productos;">
+  <h3 *ngIf="producto.comprado">{{producto.nombre}}</h3>
+</div>
