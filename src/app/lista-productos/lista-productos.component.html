@@ -6,14 +6,14 @@
 </head>
 <body>
 <h2>Productos por comprar:</h2>
-<div class="grid" id="comprado-border" >
+<div class="grid" id="comprado-border">
   <div class="item" *ngFor="let producto of productos index as i;">
     <img src="{{producto.img}}" id="comprado" *ngIf="!producto.comprado" (click)="seleccionarCompra(i)">
   </div>
 </div>
 <h2>Productos comprados:</h2>
-<div class="grid" id="no-comprado-border" >
-  <div class="item"  *ngFor="let producto of productos index as i;">
+<div class="grid" id="no-comprado-border">
+  <div class="item" *ngFor="let producto of productos index as i;">
     <img src="{{producto.img}}" id="no-comprado" *ngIf="producto.comprado" (click)="seleccionarCompra(i)">
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-lista-productos',
@@ -97,8 +97,8 @@ export class ListaProductosComponent implements OnInit {
     this.productos.push(prod12);
   }
 
-// https://stackoverflow.com/questions/49362462/display-images-and-text-from-ngfor-buttons-angular
   seleccionarCompra(index) {
+    // EN VARIAS LINEAS
     /*
     if (this.productos[index].comprado) {
       this.productos[index].comprado = false;
@@ -106,6 +106,7 @@ export class ListaProductosComponent implements OnInit {
       this.productos[index].comprado = true;
     }
      */
+    // EN UNA LINEA
     this.productos[index].comprado = !this.productos[index].comprado;
   }
 
