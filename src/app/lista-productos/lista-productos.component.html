@@ -7,26 +7,18 @@
 <body>
 <table style="width: 100%; border: 1px solid black;" class="prod">
   <tr>
-    <th>Comprado</th>
     <th>Nombre</th>
     <th>Descripción</th>
   </tr>
   <tr *ngFor="let producto of productos index as i;">
-    <td>
-      <input type="radio" name="comprado-{{i}}" [(ngModel)]="producto.comprado" [value]="true"> Si
-      <input type="radio" name="comprado-{{i}}" [(ngModel)]="producto.comprado" [value]="false"> No
-    </td>
-    <td class="badge">{{producto.nombre}}</td>
-    <td>{{producto.descripcion}}</td>
+      <td *ngIf="!producto.comprado" (click)="seleccionarCompra(i)" >{{producto.nombre}}</td>
+      <td *ngIf="!producto.comprado">{{producto.descripcion}}</td>
   </tr>
 </table>
 
 <h2>Productos comprados:</h2>
-<div *ngFor="let producto of productos;">
-  <h3 class="comprado" *ngIf="producto.comprado">{{producto.nombre}}</h3>
+<div class="prod" *ngFor="let producto of productos index as i;">
+  <td *ngIf="producto.comprado" (click)="seleccionarCompra(i)">{{producto.nombre}}</td>
 </div>
-
 </body>
 </html>
-
-

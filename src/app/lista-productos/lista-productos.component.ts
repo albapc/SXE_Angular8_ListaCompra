@@ -49,6 +49,18 @@ export class ListaProductosComponent implements OnInit {
     this.productos.push(prod6);
   }
 
+// https://stackoverflow.com/questions/49362462/display-images-and-text-from-ngfor-buttons-angular
+  seleccionarCompra(index) {
+    /*
+    if (this.productos[index].comprado) {
+      this.productos[index].comprado = false;
+    } else {
+      this.productos[index].comprado = true;
+    }
+     */
+    this.productos[index].comprado = !this.productos[index].comprado;
+  }
+
   ngOnInit() {
   }
 
