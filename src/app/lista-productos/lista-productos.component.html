@@ -5,20 +5,17 @@
   <title>Lista de la compra</title>
 </head>
 <body>
-<table style="width: 100%; border: 1px solid black;" class="prod">
-  <tr>
-    <th>Nombre</th>
-    <th>Descripción</th>
-  </tr>
-  <tr *ngFor="let producto of productos index as i;">
-      <td *ngIf="!producto.comprado" (click)="seleccionarCompra(i)" >{{producto.nombre}}</td>
-      <td *ngIf="!producto.comprado">{{producto.descripcion}}</td>
-  </tr>
-</table>
-
+<h2>Productos por comprar:</h2>
+<div class="grid" id="comprado-border" >
+  <div class="item" *ngFor="let producto of productos index as i;">
+    <img src="{{producto.img}}" id="comprado" *ngIf="!producto.comprado" (click)="seleccionarCompra(i)">
+  </div>
+</div>
 <h2>Productos comprados:</h2>
-<div class="prod" *ngFor="let producto of productos index as i;">
-  <td *ngIf="producto.comprado" (click)="seleccionarCompra(i)">{{producto.nombre}}</td>
+<div class="grid" id="no-comprado-border" >
+  <div class="item"  *ngFor="let producto of productos index as i;">
+    <img src="{{producto.img}}" id="no-comprado" *ngIf="producto.comprado" (click)="seleccionarCompra(i)">
+  </div>
 </div>
 </body>
 </html>

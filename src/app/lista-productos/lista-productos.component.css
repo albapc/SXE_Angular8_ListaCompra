@@ -1,3 +1,39 @@
+.grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 170px 170px 170px 170px;
+  grid-template-rows: auto auto auto;
+}
+
+.item {
+  border-radius: 3px;
+  text-align: center;
+}
+
+#comprado {
+  background-color: #FF5253;
+}
+
+
+#no-comprado {
+  background-color: #04A699;
+}
+
+/*
+.grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 180px 180px 180px;
+  grid-template-rows: 150px 150px;
+}
+
+.item {
+  border-radius: 3px;
+  text-align: center;
+}
+
+
+
 .prod {
   margin: 0 0 2em 0;
   list-style-type: none;
@@ -52,3 +88,4 @@
 .comprado {
   color: green;
 }
+ */
