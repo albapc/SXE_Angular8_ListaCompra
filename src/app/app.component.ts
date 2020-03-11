@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AuthService} from './auth.service';
+import {ServicioDeAutentService} from './servicio-de-autent.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,6 @@ import {AuthService} from './auth.service';
 export class AppComponent {
   title = 'lista-compra';
 
-  constructor( public auth: AuthService ) {
+  constructor( public authComponent: ServicioDeAutentService ) {
   }
 }
