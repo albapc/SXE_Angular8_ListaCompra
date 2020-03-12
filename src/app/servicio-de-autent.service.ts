@@ -15,6 +15,7 @@ export class ServicioDeAutentService {
 
   constructor(public miAuth: AngularFireAuth) {
   }
+
   // observable
   user = this.miAuth.authState.pipe(map(authState => {
     console.log('authState', authState);
@@ -27,11 +28,19 @@ export class ServicioDeAutentService {
   }));
 
   login() {
-    console.log('login!');
+    console.log('Github login!');
+    this.miAuth.auth.signInWithPopup(new auth.GithubAuthProvider())
+      .then(user => {
+        console.log('user logado: ', user);
+        this.authUser = user.user;
+      })
+      .catch(error => {
+        console.log('error en Github login: ', error);
+      });
   }
 
   glogin() {
-    console.log('google login!');
+    console.log('Google login!');
     this.miAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
       .then(user => {
         console.log('user logado: ', user);
