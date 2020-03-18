@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {FireDBService} from '../fire-db.service';
+import {ServicioDeAutentService} from '../servicio-de-autent.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -9,7 +11,8 @@ export class ListaProductosComponent implements OnInit {
 
   productos: any[];
 
-  constructor() {
+  constructor(public dbProd: FireDBService,
+              public authComponent: ServicioDeAutentService) {
     const prod1 = {
       nombre: 'Pan',
       descripcion: 'Pan de masa madre hecho artesanalmente.',
@@ -97,7 +100,7 @@ export class ListaProductosComponent implements OnInit {
     this.productos.push(prod12);
   }
 
-  seleccionarCompra(index) {
+  seleccionarCompra(userMail: string, userUid: string, index) {
     // EN VARIAS LINEAS
     /*
     if (this.productos[index].comprado) {
@@ -108,6 +111,7 @@ export class ListaProductosComponent implements OnInit {
      */
     // EN UNA LINEA
     this.productos[index].comprado = !this.productos[index].comprado;
+    this.dbProd.guardarProds(userMail, userUid, this.productos[index].nombre, this.productos[index].comprado);
   }
 
   ngOnInit() {

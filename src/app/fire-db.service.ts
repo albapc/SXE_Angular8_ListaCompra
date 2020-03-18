@@ -5,6 +5,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
   providedIn: 'root'
 })
 export class FireDBService {
+  private foo: {};
 
   constructor(public db: AngularFireDatabase) {
   }
@@ -17,5 +18,12 @@ export class FireDBService {
   bajausuario(uidBorrar: string) {
     // borra entrada
     this.db.object('users/userUID/' + uidBorrar).remove();
+  }
+
+  guardarProds(usuarioNuevoCorreo: string, usuarioNuevoUID: string, nomProd: string, comprado: boolean) {
+    this.db.object('users/userUID/' + usuarioNuevoUID.toString()).update({
+      correo: usuarioNuevoCorreo,
+      [nomProd]: comprado
+    });
   }
 }
