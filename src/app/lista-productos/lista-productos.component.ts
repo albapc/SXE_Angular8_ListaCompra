@@ -11,8 +11,7 @@ export class ListaProductosComponent implements OnInit {
 
   productos: any[];
 
-  constructor(public dbProd: FireDBService,
-              public authComponent: ServicioDeAutentService) {
+  constructor(public dbProd: FireDBService) {
     const prod1 = {
       nombre: 'Pan',
       descripcion: 'Pan de masa madre hecho artesanalmente.',
@@ -100,7 +99,7 @@ export class ListaProductosComponent implements OnInit {
     this.productos.push(prod12);
   }
 
-  seleccionarCompra(userMail: string, userUid: string, index) {
+  seleccionarCompra(index) {
     // EN VARIAS LINEAS
     /*
     if (this.productos[index].comprado) {
@@ -111,10 +110,15 @@ export class ListaProductosComponent implements OnInit {
      */
     // EN UNA LINEA
     this.productos[index].comprado = !this.productos[index].comprado;
-    this.dbProd.guardarProds(userMail, userUid, this.productos[index].nombre, this.productos[index].comprado);
+    this.dbProd.guardarProdsOnClick(this.productos[index].nombre, this.productos[index].comprado);
   }
 
   ngOnInit() {
+    // descomentar si queremos que guarde todos los datos nada mas iniciar el componente
+    /*
+    this.productos.forEach(def => {
+      this.dbProd.guardarProdsInit(def.nombre, def.comprado);
+    });
+     */
   }
-
 }

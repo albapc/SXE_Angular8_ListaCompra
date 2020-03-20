@@ -22,7 +22,7 @@ export class ServicioDeAutentService {
     if (!authState) {
       return null;
     } else {
-      // …
+      this.authUser = authState;
       return authState;
     }
   }));
