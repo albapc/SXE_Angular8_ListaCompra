@@ -10,6 +10,8 @@ import {ServicioDeAutentService} from '../servicio-de-autent.service';
 export class ListaProductosComponent implements OnInit {
 
   productos: any[];
+  nocomprados: any[];
+  comprados: any[];
 
   constructor(public dbProd: FireDBService) {
     const prod1 = {
@@ -84,6 +86,7 @@ export class ListaProductosComponent implements OnInit {
       img: 'assets/image/carrot.png',
       comprado: false
     };
+    /*
     this.productos = [];
     this.productos.push(prod1);
     this.productos.push(prod2);
@@ -97,8 +100,26 @@ export class ListaProductosComponent implements OnInit {
     this.productos.push(prod10);
     this.productos.push(prod11);
     this.productos.push(prod12);
+     */
+    this.nocomprados = [];
+    this.comprados = [];
+
+    this.comprados.push(prod1);
+    this.comprados.push(prod4);
+    this.comprados.push(prod7);
+
+    this.nocomprados.push(prod2);
+    this.nocomprados.push(prod3);
+    this.nocomprados.push(prod5);
+    this.nocomprados.push(prod6);
+    this.nocomprados.push(prod8);
+    this.nocomprados.push(prod9);
+    this.nocomprados.push(prod10);
+    this.nocomprados.push(prod11);
+    this.nocomprados.push(prod12);
   }
 
+  // metodo efecto espejo
   seleccionarCompra(index) {
     // EN VARIAS LINEAS
     /*
@@ -113,9 +134,16 @@ export class ListaProductosComponent implements OnInit {
     this.dbProd.guardarProdsOnClick(this.productos[index].nombre, this.productos[index].comprado);
   }
 
+  seleccionarProd(index, nomArray: any[], nomArray2: any[]) {
+    nomArray[index].comprado = !nomArray[index].comprado;
+    nomArray2.push(nomArray[index]);
+    this.dbProd.guardarProdsOnClick(nomArray[index].nombre, nomArray[index].comprado);
+    nomArray.splice(index, 1);
+  }
+
   ngOnInit() {
     // descomentar si queremos que guarde todos los datos nada mas iniciar el componente
-    /*
+    /* //metodo efecto espejo
     this.productos.forEach(def => {
       this.dbProd.guardarProdsInit(def.nombre, def.comprado);
     });

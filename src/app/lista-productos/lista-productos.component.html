@@ -7,17 +7,33 @@
 <body>
 <h2>Productos por comprar:</h2>
 <div class="grid">
+  <div *ngFor="let producto of nocomprados index as i;">
+    <img class="item" src="{{producto.img}}" id="no-comprado"
+         (click)="seleccionarProd(i, nocomprados, comprados)">
+  </div>
+</div>
+<!-- metodo efecto espejo
+<div class="grid">
   <div *ngFor="let producto of productos index as i;">
     <img class="item" src="{{producto.img}}" id="comprado" *ngIf="!producto.comprado"
          (click)="seleccionarCompra(i)">
   </div>
 </div>
+-->
 <h2>Productos comprados:</h2>
+<div class="grid">
+  <div *ngFor="let producto of comprados index as i;">
+    <img class="item" src="{{producto.img}}" id="comprado"
+         (click)="seleccionarProd(i, comprados, nocomprados)">
+  </div>
+</div>
+<!-- metodo efecto espejo
 <div class="grid">
   <div *ngFor="let producto of productos index as i;">
     <img class="item" *ngIf="producto.comprado" src="{{producto.img}}" id="no-comprado"
          (click)="seleccionarCompra(i)">
   </div>
 </div>
+-->
 </body>
 </html>
