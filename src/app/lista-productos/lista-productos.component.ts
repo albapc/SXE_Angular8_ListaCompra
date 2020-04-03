@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FireDBService} from '../fire-db.service';
-import {ServicioDeAutentService} from '../servicio-de-autent.service';
 
 @Component({
   selector: 'app-lista-productos',
